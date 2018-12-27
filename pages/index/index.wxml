@@ -1,0 +1,27 @@
+<!--index.wxm-->
+<image src="../../images/food_bg_paomian.jpg" class="bg"></image>
+<view class="container">
+  <view class="row_container">
+  <image src="../../images/p_10101.png" class="icon"></image>
+  <view class="w city">{{city}}</view>
+  </view>
+  <view class="row_container m_t_1">
+    <view class="f100 b w">{{tmp}}</view>
+    <view class="column_container m_l_2">
+      <view class="f30 w">{{type}}</view>
+      <image src="../../images/weather_duoyun.png" class="icon"></image>
+    </view>
+  </view>
+  <view class="row_container m_t_2">
+    <image src="../../images/humidity.png" class="humidityicon"></image>
+    <view class="f25 w">{{humidity}}%</view>
+    <image src="../../images/wind.png" class="windicon"></image>
+    <view class="f25 w">{{wind}}级</view>
+  </view>
+  <view class="row_container m_l m_t_2">
+  <view class="column_container quality_border">
+    <view class="f30 w">{{quality}}</view>
+    <view class="f25 w">{{pm}}</view>
+  </view>
+  </view>
+</view>
