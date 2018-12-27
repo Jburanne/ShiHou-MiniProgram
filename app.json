@@ -1,7 +1,8 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/future/future"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -9,5 +10,25 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle":"black",
     "enablePullDownRefresh": true
+  },
+  "tabBar":{
+    "color": "#707070",
+    "selectedColor": "#ffffff",
+    "backgroundColor": "#478FA7",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "今日天气",
+        "iconPath": "/images/weather-icon-1.png",
+        "selectedIconPath": "/images/weather-icon.png"
+      },
+      {
+        "pagePath": "pages/future/future",
+        "text": "未来天气",
+        "iconPath": "/images/future-icon-1.png",
+        "selectedIconPath": "/images/future-icon.png"
+      }
+    ]
   }
 }
