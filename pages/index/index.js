@@ -38,6 +38,11 @@ Page({
         that.setData({
           city: cityName,
         })
+        // 保存城市信息，便于未来天气页面获取
+        wx.setStorage({
+          key: 'now_city',
+          data: cityName,
+        })
         that.getWeather(cityName);
       },
       fail: function (res) { },
@@ -65,7 +70,11 @@ Page({
         var wind = res.data.HeWeather6[0].now.wind_sc;//风力等级
         var humidity = res.data.HeWeather6[0].now.hum;//湿度
         var daily_forecast = res.data.HeWeather6[0].daily_forecast;//天气预测
-
+        // 保存未来天气信息，便于未来天气页面获取
+        wx.setStorage({
+          key: 'now_city_forecast',
+          data: daily_forecast,
+        })
         that.setData({
           tmp: tmp,
           type: type,

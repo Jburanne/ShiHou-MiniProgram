@@ -1,2 +1,21 @@
 <!--pages/future/future.wxml-->
-<text>pages/future/future.wxml</text>
+<image src="../../images/future_weather_bg1.jpg" class="bg"></image>
+<view class="container">
+<view class="top_info">
+  <image src="../../images/future_weather_icon.png" class="icon"></image>
+  <view class="title">FUTURE WEATHER</view>
+  <view class="city">{{city}}</view>
+  <view class="seperator"></view>
+</view>
+<view class="future_weather">
+  <view class="future_day" wx:for="{{daily_forecast}}" wx:for-item="item" wx:for-index="i">
+    <view class="day">{{day[i]}}</view>
+    <view class="date">{{item.date}}</view>
+    <view class="wtype">{{item.cond_txt_d}}</view>
+    <image src="{{type_icon[i]}}" class="weather_icon"></image>
+  </view>
+</view>
+<canvas class="forecast_canvas" canvas-id="forcastCanvas">
+
+</canvas>
+</view>
