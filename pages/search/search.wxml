@@ -10,14 +10,24 @@
       <!-- <text class='cancel' catchtap='cancel'>清空</text> -->
     </view>
   </view>
+  <!-- 热门城市 -->
   <view class='hot'>
-    <view class='title'>猜你想找</view>
+    <view class='title'>热门查找</view>
     <view class='cities'>
       <view class='item active' catchtap='choose'>
         <image class='icon' src='../../images/location.png'></image>
         <view>定位</view>
       </view>
       <view class='item' hover-class='active' catchtap='choose' wx:for='{{hotCities}}' wx:key='{{index}}' data-name='{{item}}'>{{item}}</view>
+    </view>
+  </view>
+  <!-- 城市列表 -->
+  <view class='bottom'>
+    <view wx:key='{{index}}' wx:for='{{showItems}}'>
+      <view class='key'>{{index}}</view>
+      <view class='values'>
+        <view wx:key='{{index}}' class='value' hover-class='hover' wx:for='{{item}}' catchtap='choose' data-name='{{item.name}}'>{{item.name}}</view>
+      </view>
     </view>
   </view>
 

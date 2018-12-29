@@ -1,15 +1,22 @@
 /* pages/search/search.wxss */
 /* 容器 */
-.container {
-  position: absolute;/*绝对布局*/
+/* .container {
+  position:absolute;
   top: 50rpx;
   width: 100%;
-  padding: 0;/*内边距*/
-  margin: 0;/*外边距*/
-  height: 100%;
+  padding: 0;
+  margin: 0; 
   display:flex;
   flex-direction: column;
-  justify-content: flex-start;/*主轴以起点对齐*/
+  justify-content: flex-start;
+}  */
+.container {
+  position: absolute;
+  width: 100%;
+  display: block;
+  padding: 0;
+  margin: 0;
+  top:0rpx;
 }
 /* 搜索框背景图片 */
 .search_img{
@@ -19,11 +26,12 @@
 /* 搜索部分的容器 */
 .wrapper{
   font-size: 0;
-  padding: 30rpx;
+  padding-top: 80rpx;
+  margin-left:80rpx;
   position: relative;
-  height: 300rpx;
+  height: 400rpx;
   box-sizing: border-box;
-  width: 100%;
+  width: 80%;
   align-items: center;
 }
 .wrapper .search {
@@ -73,10 +81,8 @@
 /* 热门城市部分 */
 .hot {
   background: #fff;
-  margin-top: 10rpx;
   padding: 30rpx 30rpx 20rpx;
   width: 100%;
-  margin-left: 60rpx;
 }
 .hot .title {
   font-size: 32rpx;
@@ -114,10 +120,12 @@
   font-size: 32rpx;
   color: #333;
   background: #fff;
+  width: 100%;
+  margin-top:30rpx;
 }
 .bottom .key {
   background: #f4f6f9;
-  height: 50rpx;
+  height: 60rpx;
   display: flex;
   align-items: center;
   padding: 0 30rpx;
@@ -132,7 +140,7 @@
 .bottom .values .value:last-child {
   border-bottom: none;
 }
-.hover {
+/* .hover {
   background: #f4f6f9;
 }
 .empty {
@@ -140,6 +148,6 @@
   font-size: 30rpx;
   text-align: center;
   color: #666;
-}
+} */
 
 
