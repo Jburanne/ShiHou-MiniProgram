@@ -1,9 +1,44 @@
 //index.js
 Page({
-  onLoad: function () {
+  onLoad: function (options) {
     console.log('onload')
+    var that=this
+    that.showPage()
+  },
+
+// 加载页面内容
+  showPage: function(){
     var that = this
-    that.getLocation();
+    wx.getStorage({
+      key: 'selectedCity',
+      success: function (res) {
+        // 如果搜索城市页面传来了值，则依据传来的城市加载信息
+        if (res.data != null && res.data != '') {
+          that.getWeather(res.data);
+          wx.setStorage({
+            key: 'now_city',
+            data: res.data,
+          })
+          console.log(res.data)
+          that.setData({
+            city: res.data,
+          })
+          wx.setStorage({
+            key: 'selectedCity',
+            data: '',
+          })
+        }
+        // 若没有传来值则根据定位加载信息
+        else {
+          that.getLocation();
+          wx.setStorage({
+            key: 'selectedCity',
+            data: '',
+          })
+        }
+      },
+    })
+
   },
 
   //获取经纬度方法

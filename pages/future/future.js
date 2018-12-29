@@ -16,21 +16,28 @@ Page({
    */
   onLoad: function () {
     var that = this
+    that.showPage()
+    
+    // that.getLocation();
+  },
+
+  showPage: function(){
+    var that=this
     wx.getStorage({
       key: 'now_city_forecast',
       // 设置daily_forecast
-      success: function(res) {
-        var daily_forecast=res.data
+      success: function (res) {
+        var daily_forecast = res.data
         // 把dailyforecast中的date形式改为月-日
         daily_forecast.forEach((item) => {
           var temp = item.date
           item.date = temp.substring(temp.length - 5, temp.length)
         })
         that.setData({
-          daily_forecast:daily_forecast,
+          daily_forecast: daily_forecast,
         }),
-        // 绘制曲线
-        that.drawForecastView(res.data);
+          // 绘制曲线
+          that.drawForecastView(res.data);
         // 设置天气图标
         that.setTypeIcon(res.data);
       },
@@ -38,14 +45,12 @@ Page({
     // 获取城市
     wx.getStorage({
       key: 'now_city',
-      success: function(res) {
+      success: function (res) {
         that.setData({
-          city:res.data
+          city: res.data
         })
       },
     })
-    
-    // that.getLocation();
   },
 
 
@@ -207,7 +212,8 @@ forecastCtx.draw()
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that=this
+    that.showPage()
   },
 
   /**

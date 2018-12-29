@@ -1,6 +1,7 @@
 {
   "pages":[ 
     "pages/index/index",
+    "pages/search/search",
     "pages/future/future",
     "pages/logs/logs"
   ],
@@ -28,6 +29,12 @@
         "text": "未来天气",
         "iconPath": "/images/future-icon-1.png",
         "selectedIconPath": "/images/future-icon.png"
+      },
+      {
+        "pagePath":"pages/search/search",
+        "text":"全国天气",
+        "iconPath":"/images/search_1.png",
+        "selectedIconPath":"/images/search.png"
       }
     ]
   }

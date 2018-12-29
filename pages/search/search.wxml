@@ -1,0 +1,24 @@
+<!--pages/search/search.wxml-->
+<image src="../../images/city_search.png" class="search_img"></image>
+<view class="container">
+  <view class="wrapper">
+    <view class='search'>  
+      <view class="inner">
+        <image class='icon' src='../../images/search.png'></image>
+        <input value='{{inputText}}' placeholder='请输入城市名，快速查询天气信息' maxlength='20' confirm-type='搜索'></input>
+      </view>
+      <!-- <text class='cancel' catchtap='cancel'>清空</text> -->
+    </view>
+  </view>
+  <view class='hot'>
+    <view class='title'>猜你想找</view>
+    <view class='cities'>
+      <view class='item active' catchtap='choose'>
+        <image class='icon' src='../../images/location.png'></image>
+        <view>定位</view>
+      </view>
+      <view class='item' hover-class='active' catchtap='choose' wx:for='{{hotCities}}' wx:key='{{index}}' data-name='{{item}}'>{{item}}</view>
+    </view>
+  </view>
+
+</view>
