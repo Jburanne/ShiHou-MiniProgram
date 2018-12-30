@@ -1,6 +1,6 @@
 <!--index.wxm-->
-<!-- <image src="../../images/food_bg_paomian.jpg" class="bg"></image> -->
-<!-- <view class="page"> -->
+<image src="{{bgsrc}}" class="bg"></image>
+<!-- <view style="background-image: url({{bgsrc}})"> -->
 <view class="container">
   <view class="row_container">
   <image src="{{iconsrc}}" class="icon"></image>

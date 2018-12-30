@@ -1,4 +1,8 @@
 /* pages/search/search.wxss */
+page{
+  margin: 0px;
+  background-size: 100% 100%;
+}
 /* 容器 */
 /* .container {
   position:absolute;

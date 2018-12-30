@@ -2,7 +2,6 @@
 page{
   overflow: hidden;
   position: fixed;
-  background-image: url(http://192.144.139.121/ShiHou/food_bg/food_bg_paomian.jpg);
   margin: 0px;
   background-size: 100% 100%;
 }

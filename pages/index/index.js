@@ -69,7 +69,6 @@ Page({
       data: params,
       success: function (res) {
         var city = res.data.result.addressComponent.city;
-        // var cityName = city.substring(0, city.length - 1);
         that.setData({
           city: city,
         })
@@ -106,9 +105,11 @@ Page({
         var humidity = res.data.HeWeather6[0].now.hum;//湿度
         var daily_forecast = res.data.HeWeather6[0].daily_forecast;//天气预测
         console.log("测试" + res.data.HeWeather6[0].basic.admin_area);
+        //设置首页的省份logo
         that.setData({
           iconsrc: "http://192.144.139.121/ShiHou/province_icon/p_" + res.data.HeWeather6[0].basic.admin_area+".png",
         }),
+        that.setBg(parseInt(tmp));
         // 保存未来天气信息，便于未来天气页面获取
         wx.setStorage({
           key: 'now_city_forecast',
@@ -144,6 +145,30 @@ Page({
     this.getLocation(() => {   
       wx.stopPullDownRefresh()
     })
+  },
+
+  // 确定背景图片
+  setBg: function(tmp){
+    var that=this;
+    // 随机产生背景图片标号
+    var bgnum=parseInt(4*Math.random()+1)
+    console.log(bgnum)
+    var bgsrc=""
+    // 根据温度范围确定背景图片
+    if(tmp >= -20 && tmp < 10){
+      bgsrc ="http://192.144.139.121/ShiHou/food_bg/f1/food_bg_"+bgnum+".jpg";
+    }else if(tmp >=10 && tmp < 20 ){
+      bgsrc = "http://192.144.139.121/ShiHou/food_bg/f2/food_bg_" + bgnum + ".jpg";
+    }else if(tmp >= 20 && tmp <= 30){
+      bgsrc = "http://192.144.139.121/ShiHou/food_bg/f3/food_bg_" + bgnum + ".jpg";
+    }else{
+      bgsrc = "http://192.144.139.121/ShiHou/food_bg/food_bg_null.jpg";
+    }
+    that.setData({
+      bgsrc:bgsrc,
+    })
+    console.log(bgsrc)
+
   },
 
 // 分享功能

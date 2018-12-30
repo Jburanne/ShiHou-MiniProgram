@@ -1,5 +1,5 @@
 <!--pages/future/future.wxml-->
-<image src="../../images/future_weather_bg1.jpg" class="bg"></image>
+<image src="http://192.144.139.121/ShiHou/future_bg/future_weather_bg1.jpg" class="bg"></image>
 <view class="container">
 <view class="top_info">
   <image src="../../images/future_weather_icon.png" class="icon"></image>
