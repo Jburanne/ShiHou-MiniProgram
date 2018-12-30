@@ -69,16 +69,16 @@ Page({
       data: params,
       success: function (res) {
         var city = res.data.result.addressComponent.city;
-        var cityName = city.substring(0, city.length - 1);
+        // var cityName = city.substring(0, city.length - 1);
         that.setData({
-          city: cityName,
+          city: city,
         })
         // 保存城市信息，便于未来天气页面获取
         wx.setStorage({
           key: 'now_city',
-          data: cityName,
+          data: city,
         })
-        that.getWeather(cityName);
+        that.getWeather(city);
       },
       fail: function (res) { },
       complete: function (res) { },

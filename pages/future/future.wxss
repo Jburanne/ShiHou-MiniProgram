@@ -20,7 +20,6 @@
 .forecast_canvas{
   width: 750rpx;
   height: 272rpx;
-  margin-top: 40rpx;
 }
 /* 图标 */
 .icon{

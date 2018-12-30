@@ -34,7 +34,7 @@ Page({
           item.date = temp.substring(temp.length - 5, temp.length)
         })
         that.setData({
-          daily_forecast: daily_forecast,
+          daily_forecast: res.data,
         }),
           // 绘制曲线
           that.drawForecastView(res.data);
@@ -57,6 +57,7 @@ Page({
 // 根据天气类型设置天气图标
   setTypeIcon: function(forecast){
     var that=this
+    iconsrc=[]
     forecast.forEach((item) =>{
       switch(item.cond_txt_d){
         case "多云":

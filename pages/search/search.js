@@ -1,7 +1,8 @@
 // pages/search/search.js
 let staticData = require('../../data/staticData.js')
+let utils = require('../../utils/utils.js')
 var app = getApp()
-var hotCities = ["北京", "上海", "广州", "深圳", "南京", "武汉", "杭州"];
+var hotCities = ["北京市", "上海市", "广州市", "深圳市", "南京市", "武汉市", "杭州市"];
 
 Page({ 
   /**
@@ -21,10 +22,12 @@ Page({
       showItems: cities,
     })   
   },
+  // 点击某个城市，跳转到主页，显示该城市的天气信息
   choose(e) {
     console.log("点击了")
     var selectedCity=e.currentTarget.dataset.name;
     console.log(selectedCity);
+    // 记录点击的城市
     wx.setStorage({
       key: 'selectedCity',
       data: selectedCity,
@@ -37,6 +40,11 @@ Page({
         if (page == undefined || page == null) return;
         page.onLoad();
       } 
+    })
+    //搜索框和搜索结果初始化
+    this.setData({
+      inputText: '',
+      showItems: this.data.cities,
     })
   },
 
@@ -64,6 +72,39 @@ Page({
     }
     // 返回一个对象，直接用 wx:for 来遍历对象，index 为 key，item 为 value，item 是一个数组
     return obj
+  },
+
+// 根据输入内容匹配城市，若城市名中包含输入的信息，则将城市push进showitems
+  inputFilter(e) {
+    let alternative = {}
+    let cities = this.data.cities
+    let value = e.detail.value.replace(/\s+/g, '')
+    if (value.length) {
+      for (let i in cities) {
+        let items = cities[i]
+        for (let j = 0, len = items.length; j < len; j++) {
+          let item = items[j]
+          if (item.name.indexOf(value) !== -1) {
+            if (utils.isEmptyObject(alternative[i])) {
+              alternative[i] = []
+            }
+            alternative[i].push(item)
+          }
+        }
+      }
+      if (utils.isEmptyObject(alternative)) {
+        alternative = null
+      }
+      this.setData({
+        alternative,
+        showItems: alternative,
+      })
+    } else {
+      this.setData({
+        alternative: null,
+        showItems: cities,
+      })
+    }
   },
 
 
