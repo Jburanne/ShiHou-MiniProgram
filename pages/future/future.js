@@ -197,9 +197,35 @@ for (var i = 0; i < forecast.length; i++) {
   forecastCtx.fillText(" " + forecast[i].tmp_min + "°", forecast[i].minX, forecast[i].minY + 20)
   forecastCtx.setFillStyle("#ffffff")
 }
-
 forecastCtx.draw()
 },
+
+// 分享功能
+  onShareAppMessage: function () {
+    let that = this;
+    return {
+      title: '未来天气', // 转发后 所显示的title
+      path: '/pages/future/future', // 相对的路径
+      success: (res) => {    // 成功后要做的事情
+        console.log(res.shareTickets[0])
+        wx.getShareInfo({
+          shareTicket: res.shareTickets[0],
+          success: (res) => {
+            that.setData({
+              isShow: true
+            })
+            console.log(that.setData.isShow)
+          },
+          fail: function (res) { console.log(res) },
+          complete: function (res) { console.log(res) }
+        })
+      },
+      fail: function (res) {
+        // 分享失败
+        console.log(res)
+      }
+    }
+  },
 
 
   /**

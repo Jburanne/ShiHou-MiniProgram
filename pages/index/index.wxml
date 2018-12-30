@@ -1,8 +1,9 @@
 <!--index.wxm-->
-<image src="../../images/food_bg_paomian.jpg" class="bg"></image>
+<!-- <image src="../../images/food_bg_paomian.jpg" class="bg"></image> -->
+<!-- <view class="page"> -->
 <view class="container">
   <view class="row_container">
-  <image src="../../images/p_10101.png" class="icon"></image>
+  <image src="{{iconsrc}}" class="icon"></image>
   <view class="w city">{{city}}</view>
   </view>
   <view class="row_container m_t_1">
@@ -25,3 +26,4 @@
   </view>
   </view>
 </view>
+<!-- </view> -->

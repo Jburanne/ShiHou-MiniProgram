@@ -105,6 +105,10 @@ Page({
         var wind = res.data.HeWeather6[0].now.wind_sc;//风力等级
         var humidity = res.data.HeWeather6[0].now.hum;//湿度
         var daily_forecast = res.data.HeWeather6[0].daily_forecast;//天气预测
+        console.log("测试" + res.data.HeWeather6[0].basic.admin_area);
+        that.setData({
+          iconsrc: "http://192.144.139.121/ShiHou/province_icon/p_" + res.data.HeWeather6[0].basic.admin_area+".png",
+        }),
         // 保存未来天气信息，便于未来天气页面获取
         wx.setStorage({
           key: 'now_city_forecast',
@@ -140,5 +144,34 @@ Page({
     this.getLocation(() => {   
       wx.stopPullDownRefresh()
     })
+  },
+
+// 分享功能
+  onShareAppMessage: function () {
+    let that = this;
+    return {
+      title: '食候天气', // 转发后 所显示的title
+      path: '/pages/index/index', // 相对的路径
+      success: (res) => {    // 成功后要做的事情
+        console.log(res.shareTickets[0])
+        // console.log
+
+        wx.getShareInfo({
+          shareTicket: res.shareTickets[0],
+          success: (res) => {
+            that.setData({
+              isShow: true
+            })
+            console.log(that.setData.isShow)
+          },
+          fail: function (res) { console.log(res) },
+          complete: function (res) { console.log(res) }
+        })
+      },
+      fail: function (res) {
+        // 分享失败
+        console.log(res)
+      }
+    }
   },
 })
