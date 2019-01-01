@@ -2,16 +2,18 @@
 <image src="{{bgsrc}}" class="bg"></image>
 <!-- <view style="background-image: url({{bgsrc}})"> -->
 <view class="container">
+<view class="words">❤{{words}}❤</view>
   <view class="row_container">
   <image src="{{iconsrc}}" class="icon"></image>
   <view class="w city">{{city}}</view>
   <image class="icon1" src="../../images/location_1.png" bindtap="chooseLocation"></image>
+  
   </view>
   <view class="row_container m_t_1">
     <view class="f100 b w">{{tmp}}</view>
     <view class="column_container m_l_2">
       <view class="f30 w">{{type}}</view>
-      <image src="../../images/weather_duoyun.png" class="icon"></image>
+      <image src="{{typeicon}}" class="icon"></image>
     </view>
   </view>
   <view class="row_container m_t_2">

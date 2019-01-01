@@ -121,6 +121,10 @@ Page({
           wind: wind,
           humidity: humidity,
         })
+        //设置天气图标
+        that.setTypeIcon(type)
+        //设置标语
+        that.setWords(type)
       },
       fail: function (res) { },
       complete: function (res) { },
@@ -171,6 +175,65 @@ Page({
 
   },
 
+  // 根据天气类型设置天气图标
+  setTypeIcon: function (type) {
+    var that = this
+    var iconsrc=""
+      switch (type) {
+        case "多云":
+          iconsrc ="../../images/weather_duoyun.png";
+          break;
+        case "晴":
+          iconsrc ="../../images/weather_qing.png";
+          break;
+        case "大暴雪":
+          iconsrc ="../../images/weather_dabaoxue.png";
+          break;
+        case "大雪":
+          iconsrc ="../../images/weather_daxue.png";
+          break;
+        case "大雨":
+          iconsrc ="../../images/weather_dayu.png";
+          break;
+        case "雷阵雨":
+          iconsrc ="../../images/weather_leizhenyu.png";
+          break;
+        case "雾":
+          iconsrc ="../../images/weather_wu.png";
+          break;
+        case "小雪":
+          iconsrc ="../../images/weather_xiaoxue.png";
+          break;
+        case "小雨":
+          iconsrc ="../../images/weather_xiaoyu.png";
+          break;
+        case "阴":
+          iconsrc ="../../images/weather_yin.png";
+          break;
+        case "雨夹雪":
+          iconsrc ="../../images/weather_yujiaxue.png";
+          break;
+        case "阵雪":
+          iconsrc ="../../images/weather_zhenxue.png";
+          break;
+        case "阵雨":
+          iconsrc ="../../images/weather_zhenyu.png";
+          break;
+        case "中雪":
+          iconsrc ="../../images/weather_zhongxue.png";
+          break;
+        case "中雨":
+          iconsrc ="../../images/weather_zhongyu.png";
+          break;
+        default:
+          iconsrc ="../../images/weather_null.png"
+      }
+      that.setData({
+        typeicon:iconsrc,
+      })
+
+  },
+
 // 分享功能
   onShareAppMessage: function () {
     let that = this;
@@ -210,8 +273,29 @@ Page({
         console.log("纬度经度 lat:" + latitude + " lon:" + longitude)
         //调用天气查询
         that.getCity(latitude, longitude);
-
       }
     })
+  },
+
+  //根据天气设置首页标语
+  setWords: function(type){
+    var that=this
+    var words=""
+    if(type.indexOf('雨') != -1){
+      words="最美的不是下雨天，是曾与你躲过雨的屋檐"
+    } else if (type.indexOf('云') != -1){
+      words="所有的云都跑到我这里"
+    }
+    else if(type.indexOf('晴')!=-1){
+      words ="载着你仿佛载着阳光"
+    }else if(type.indexOf('雪')!=-1){
+      words="零下已结晶的誓言不会坏"
+    } else if (type.indexOf('阴') != -1) {
+      words = "风筝在阴天搁浅，想念还在等待救援"
+    }
+    that.setData({
+      words:words,
+    })
+
   },
 })

@@ -90,6 +90,14 @@ page{
   font-family: "微软雅黑";
 }
 
+.words{
+  font-family: "微软雅黑";
+  font-size: 25rpx;
+  color: white;
+  width: 750rpx;
+  text-align: center;
+}
+
 .quality_border{
   border: white;
   border-style: solid;
@@ -97,6 +105,6 @@ page{
   border-radius: 5px;
   padding-left: 10px;
   padding-right: 10px;
-  width: 100rpx;
+  width: 150rpx;
 }
 
