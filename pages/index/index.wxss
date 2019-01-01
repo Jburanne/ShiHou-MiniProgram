@@ -15,6 +15,11 @@ page{
   width: 100rpx;
   height: 100rpx;
 }
+.icon1{
+  width:40rpx;
+  height: 40rpx;
+  margin-left: 10rpx;
+}
 /* 湿度图标 */
 .humidityicon{
   width: 50rpx;

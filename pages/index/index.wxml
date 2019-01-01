@@ -5,6 +5,7 @@
   <view class="row_container">
   <image src="{{iconsrc}}" class="icon"></image>
   <view class="w city">{{city}}</view>
+  <image class="icon1" src="../../images/location_1.png" bindtap="chooseLocation"></image>
   </view>
   <view class="row_container m_t_1">
     <view class="f100 b w">{{tmp}}</view>

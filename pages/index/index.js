@@ -199,4 +199,19 @@ Page({
       }
     }
   },
+
+  //手动选择地点
+  chooseLocation: function () {
+    var that = this;
+    wx.chooseLocation({
+      success: function (res) {
+        var latitude = res.latitude //纬度
+        var longitude = res.longitude //经度
+        console.log("纬度经度 lat:" + latitude + " lon:" + longitude)
+        //调用天气查询
+        that.getCity(latitude, longitude);
+
+      }
+    })
+  },
 })
