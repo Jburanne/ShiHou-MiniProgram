@@ -2,7 +2,9 @@
 <image src="{{bgsrc}}" class="bg"></image>
 <!-- <view style="background-image: url({{bgsrc}})"> -->
 <view class="container">
-<view class="words">❤{{words}}❤</view>
+  <view class="words">
+  <image src="../../images/flower.png" class="wordsicon"></image>
+  {{words}}</view>
   <view class="row_container">
   <image src="{{iconsrc}}" class="icon"></image>
   <view class="w city">{{city}}</view>
